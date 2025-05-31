@@ -1,0 +1,14 @@
+/node_modules
+
+
+# Parcel cache
+.parcel-cache          
+
+# Production build
+/dist                 
+
+# Environment variables
+.env                   
+
+# Logs
+*.log                 
