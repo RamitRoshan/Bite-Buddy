@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,10 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
+//import Grocery from "./components/Grocery";
+
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 //arrow function
 const AppLayout = () =>{
@@ -37,6 +41,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact/>,
+            },
+            {
+                path: "/grocery",
+                element: <Grocery/>,
             },
             {
                 //resId is dynamic here, it can change acc/to the ID of the restaurant.
