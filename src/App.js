@@ -1,16 +1,19 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
+//import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 //import Grocery from "./components/Grocery";
 
-
+//lazy loading of Grocery
 const Grocery = lazy(() => import("./components/Grocery"));
+
+//lazy loading of about us(instead of directly importing we do lazy loading and separate a about us file)
+const About = lazy(() => import("./components/About"));
 
 //arrow function
 const AppLayout = () =>{
@@ -36,7 +39,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/about",
-                element: <About />,
+                element: (
+                    <Suspense fallback={<h1>Loading.....</h1>}>
+                        <About/>
+                    </Suspense>
+                ),
             },
             {
                 path: "/contact",
@@ -44,7 +51,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/grocery",
-                element: <Grocery/>,
+                element: (
+                    <Suspense fallback={<h1>Loading....</h1>}>
+                        <Grocery/>
+                    </Suspense>
+                ), 
             },
             {
                 //resId is dynamic here, it can change acc/to the ID of the restaurant.
