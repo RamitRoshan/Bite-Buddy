@@ -3,9 +3,14 @@ import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body =() => {
+
+    // Always call custom hooks at the top
+    const onlineStatus = useOnlineStatus();
+    
     // Local state Variable  - Super powerful variable
     const [listofRestaurants, setListofRestaurants] = useState([]);   
 
@@ -19,6 +24,8 @@ const Body =() => {
 
     //Whenever state variable update, react triggers a reconciliation cycle(re-renders the component)
     console.log("Body rerendered");
+
+    
 
     useEffect(()=>{
         fetchData();
@@ -38,11 +45,6 @@ const Body =() => {
         const json = await data.json();
         // console.log(json);
 
-    
-    
-
- 
-
         // Optional Chaining
         // setListofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         // setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -56,12 +58,21 @@ const Body =() => {
         
     };
 
+
+    if(onlineStatus === false) 
+    return (
+        <h1>
+            Looks like you're offline!! Please check your internet connections.
+        </h1>
+    );
+
     //Conditional Rendering
     if(listofRestaurants.length === 0){
         return <Shimmer/>;
     }
 
- 
+
+
    //here, I use ternary Operator
     return listofRestaurants.length === 0 ? ( 
     <Shimmer/> 
