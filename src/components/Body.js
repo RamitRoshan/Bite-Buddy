@@ -105,12 +105,12 @@ const Body =() => {
 
                 <div className="search m-4 p-4 flex items-center">
                 <button 
-                className="px-4 py-2 bg-gray-100 rounded-lg" 
+                className="px-4 py-2 bg-gray-300 rounded-lg" 
                 onClick={() => {
                 
                     //have to write filter logic over here
                     const filteredList = listofRestaurants.filter(
-                        (res) => res.info.avgRating > 4
+                        (res) => parseFloat(res.info.avgRating) > 4.1
                     );
                     setListofRestaurants(filteredList);
                 }}
