@@ -23,7 +23,7 @@ const Body =() => {
  
 
     //Whenever state variable update, react triggers a reconciliation cycle(re-renders the component)
-    console.log("Body rerendered");
+    console.log("Body rerendered", listofRestaurants);
 
     
 
