@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -20,7 +20,7 @@ const Body =() => {
     //One more State Variable 
     const [searchText, setSearchText] = useState("");
 
- 
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     //Whenever state variable update, react triggers a reconciliation cycle(re-renders the component)
     console.log("Body rerendered", listofRestaurants);
@@ -127,7 +127,12 @@ const Body =() => {
                   key={restaurant.info.id} 
                   to={"/restaurants/" + restaurant.info.id}
                   >
-                    <RestaurantCard resData = {restaurant}/>
+                    {/* If the restaurant is promoted then add a promoted label to it*/}
+                    {restaurant.info.promoted ? (
+                        <RestaurantCardPromoted resData={restaurant} />
+                    ) : (
+                        <RestaurantCard resData={restaurant}/>
+                    )}
                   </Link>
                    //here we willuse map-filter , but we can also 
                    //use for loop here
