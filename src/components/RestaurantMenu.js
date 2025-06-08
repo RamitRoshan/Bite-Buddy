@@ -10,11 +10,13 @@ const RestaurantMenu = () =>{
     //const [resInfo, setResInfo] = useState(null);
 
     const {resId} = useParams();
+
+    const dummy = "Dummy Data";
+
     const resInfo = useRestaurantMenu(resId);
     
-    // useEffect(() => {
-    //     fetchMenu();
-    // }, []);  
+    //it will show the indexlist of dish like 0 ist dish
+   const [showIndex, setShowIndex] = useState(null);
 
     // const fetchMenu = async () => {
     //     const data = await fetch(MENU_API + resId);
@@ -43,48 +45,28 @@ const RestaurantMenu = () =>{
             <p className="font-bold text-lg">
                 {cuisines.join(" , ")} - {costForTwoMessage}
             </p>
-
+ 
             {/* categories accodians*/}
-            {/* {categories.map((category) => (
-                <RestaurantCategory data={category?.card?.card}/>
-            ))} */}
+            {categories.map((category, index) => (
+                //controlled components
+                <RestaurantCategory
+                key={category?.card?.card.title} 
+                data={category?.card?.card}
 
-            {categories?.map((category, index) => (
+                showItems={index === showIndex ? true : false}
+                setShowIndex = {() => setShowIndex(index)}
+                dummy = {dummy}
+                />
+            ))}
+
+            {/* {categories?.map((category, index) => (
                <RestaurantCategory
                  key={category.card.card.title || index} // Preferably use a unique value
                  data={category.card.card}
                 />
-            ))}
-
-
-
-
-
-            {/* <h2 className="font-semibold text-xl">Menu</h2>
-            {categories?.map((category, index) => (
-                <div key={index}>
-                    <h3>{category.card.card.title}</h3>
-                    <ul>
-                        {category.card.card.itemCards?.map((item) => (
-                            <li key={item.card.info.id}>
-                                {item.card.info.name} - ₹
-                                {(item.card.info.price || item.card.info.defaultPrice) / 100}
-                            </li>
-
-                        ))}
-                    </ul>
-                </div>
             ))} */}
 
-            {/* <h2>Menu</h2>
-            <ul>
-                {itemCards.map((item) => (
-                    <li key={item.card.info.id}>
-                 {item.card.info.name} - {"Rs."}
-                 {item.card.info.price/100 || item.card.info.defaultprice/100}
-                    </li>
-                ))}
-            </ul> */}
+         
 
         </div>
     );

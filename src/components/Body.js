@@ -1,9 +1,10 @@
 import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import resList from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
 const Body =() => {
@@ -23,7 +24,7 @@ const Body =() => {
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     //Whenever state variable update, react triggers a reconciliation cycle(re-renders the component)
-    console.log("Body rerendered", listofRestaurants);
+    // console.log("Body rerendered", listofRestaurants);
 
     
 
@@ -66,12 +67,13 @@ const Body =() => {
         </h1>
     );
 
+    const {loggedInUser, setUserName} = useContext(UserContext);
+
     //Conditional Rendering
     if(listofRestaurants.length === 0){
         return <Shimmer/>;
     }
-
-
+    
 
    //here, I use ternary Operator
     return listofRestaurants.length === 0 ? ( 
@@ -103,7 +105,7 @@ const Body =() => {
                     >Search</button>
                 </div>
 
-                <div className="search m-4 p-4 flex items-center">
+            <div className="search m-4 p-4 flex items-center">
                 <button 
                 className="px-4 py-2 bg-gray-300 rounded-lg" 
                 onClick={() => {
@@ -117,7 +119,20 @@ const Body =() => {
                 >
                     Top Rated Restaurants
                 </button>
-                </div>
+            </div>
+
+             <div className="search m-4 p-4 flex items-center">
+                 <label className="m-2">UserName: </label>
+                 <input 
+                 className="border border-black p-2"
+                 value={loggedInUser} 
+                 onChange={(e)=> setUserName(e.target.value)}
+                 />
+            </div>
+
+
+
+
 
             </div>
             <div className="flex flex-wrap"> 

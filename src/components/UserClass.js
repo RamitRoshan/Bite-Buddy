@@ -15,7 +15,7 @@ class UserClass extends React.Component{
                 // avatar_url: "https://dummy-photo.com",
             },
         };
-        console.log(this.props.name +"Child Constructor");
+        //console.log(this.props.name +"Child Constructor");
     }
 
     async componentDidMount(){
@@ -29,16 +29,16 @@ class UserClass extends React.Component{
         });
         
 
-        console.log(json);
+        //console.log(json);
     }
     
 
     componentDidUpdate(){
-        console.log("Component Did Update");
+        //console.log("Component Did Update");
     }
 
     componentWillUnmount(){
-        console.log("Component Will Unmount");
+        //console.log("Component Will Unmount");
     }
 
     render() { 
