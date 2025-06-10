@@ -75,7 +75,7 @@ const Body =() => {
     }
     
 
-   //here, I use ternary Operator
+   //I use here ternary Operator
     return listofRestaurants.length === 0 ? ( 
     <Shimmer/> 
     ) :(
