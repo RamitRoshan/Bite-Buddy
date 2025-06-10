@@ -17,6 +17,7 @@ const User = ({name}) => {
             <h2>Name: {name}</h2>
             <h3>Location: Gurgaon</h3>
             <h4>Contact: @ramitroshan1013</h4>
+            <h5>Phone: 9931970143</h5>
         </div>
     );
 };
