@@ -58,31 +58,6 @@ src/
 
 ---
 
-## 📦 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/RamitRoshan/Bite-Buddy.git
-cd Bite-Buddy
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Start the development server
-
-```bash
-npm run dev
-```
-
-App will be running on `http://localhost:3000/`
-
----
-
 ## 🛠️ Key Concepts Demonstrated
 
 | Concept                   | Description                                                                 |
@@ -102,9 +77,10 @@ App will be running on `http://localhost:3000/`
 
 ---
 
-## 👨‍💻 Author
+## 🚀 Deployment
+- [Live Demo](https://bite-buddy-git-main-ramit-roshans-projects.vercel.app/)
 
-**Ramit Roshan**  
-🔗 [GitHub: @RamitRoshan](https://github.com/RamitRoshan)
+---
 
+💡 **Made by ❤️ Ramit Roshan
 
