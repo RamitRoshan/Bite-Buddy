@@ -32,7 +32,7 @@ class About extends React.Component{
                     )}
                 </UserContext.Consumer>
             </div>
-            <h2>This is Namaste React web Series</h2>
+            <h2>(Software Developer)</h2>
             {/* now we have two instance of the same user class */}
             <UserClass name={"First"} location={"Gurgaon-Class"}/>
         </div>
