@@ -94,12 +94,13 @@ src/
 
 ## For Recruiters
 
-This project reflects core skills in:
+This project reflects my-core skills in:
 
 - Building modern React apps with reusable components
 - Managing state with hooks and context
 - UI/UX optimization (loaders, responsiveness)
 - Clean, readable code and scalable structure
+- How we can implement Lazy Loading
 
  
 ---
