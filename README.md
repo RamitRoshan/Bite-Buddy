@@ -62,6 +62,15 @@ This project demonstrates key frontend development practices like routing, state
 | ⏳ **Shimmer UI**             | Displays loaders while content is being fetched                            |
 
 ---
+## Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartSlice)
+- dispatch(action)
+- Selector
+
+---
 
 ## 📁 Folder Structure
 
