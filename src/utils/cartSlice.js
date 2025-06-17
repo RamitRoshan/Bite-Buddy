@@ -10,6 +10,9 @@ const cartSlice = createSlice({
         addItem: (state, action) => {
             //mutating the state here
             //item is and array and I will push the action.payload inside it
+
+            //Redux Toolkit
+            //We have to mutate the state 
             state.items.push(action.payload);
         },
         removeItem: (state, action) =>{

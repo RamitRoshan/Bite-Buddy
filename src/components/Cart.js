@@ -5,6 +5,10 @@ import { clearCart } from "../utils/cartSlice";
 const Cart = () => {
     const cartItems = useSelector((store) => store.cart.items);
 
+    //above and below both are same, it's just destructuring
+    // const store  = useSelector((store) => store);
+    // const cartItems = store.cart.items;
+
     const dispatch = useDispatch();
     const handleClearCart = () => {
         dispatch(clearCart());
